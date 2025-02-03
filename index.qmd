@@ -1,0 +1,17 @@
+---
+title: "ai-ensembles"
+author: "Gerd Graßhoff"
+date: last-modified
+---
+
+# ai-ensembles
+
+This is the initial documentation page for ai-ensembles.
+
+## About
+
+This documentation is generated using AI Notebook and published via Quarto.
+
+## Status
+
+Initial setup complete. Ready for content generation.

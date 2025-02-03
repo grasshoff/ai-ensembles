@@ -1,0 +1,27 @@
+{
+  "project": {
+    "type": "book",
+    "output-dir": "../docs"
+  },
+  "book": {
+    "title": "ai-ensembles",
+    "chapters": [
+      "index.qmd"
+    ],
+    "sidebar": {
+      "style": "docked",
+      "search": true
+    },
+    "page-navigation": true
+  },
+  "format": {
+    "html": {
+      "theme": "sandstone",
+      "toc": true,
+      "code-fold": true,
+      "code-tools": true,
+      "highlight-style": "pygments",
+      "page-layout": "full"
+    }
+  }
+}
