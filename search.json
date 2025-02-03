@@ -1,0 +1,32 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ai-ensembles",
+    "section": "",
+    "text": "1 ai-ensembles\nThis is the initial documentation page for ai-ensembles.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "ai-ensembles",
+    "section": "1.1 About",
+    "text": "1.1 About\nThis documentation is generated using AI Notebook and published via Quarto.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#status",
+    "href": "index.html#status",
+    "title": "ai-ensembles",
+    "section": "1.2 Status",
+    "text": "1.2 Status\nInitial setup complete. Ready for content generation.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+    ]
+  }
+]
