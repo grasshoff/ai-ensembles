@@ -4,29 +4,429 @@
     "href": "index.html",
     "title": "ai-ensembles",
     "section": "",
-    "text": "1 ai-ensembles\nThis is the initial documentation page for ai-ensembles.",
+    "text": "1 AI Ensembles Visualizations\nWelcome to the AI Ensembles visualization documentation. This book contains the processed results and visualizations from our AI notebooks.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI Ensembles Visualizations</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#contents",
+    "href": "index.html#contents",
+    "title": "ai-ensembles",
+    "section": "1.1 Contents",
+    "text": "1.1 Contents\n\nAI Ensembles Overview\n\nCore concepts and architecture\nDirectory structure\nConfiguration\nProcessing workflow\n\nAI Notebooks\n\nNotebook structure\nAI blocks\nModel selection\nTemplates\n\nAI Tasks\n\nTask types\nConfiguration\nProcessing chains\nError handling\n\nData Structure\n\nSource organization\nProcess directory\nAI views\nFile naming\n\nCLI Execution\n\nAINotebook CLI\nAIAudio CLI\nConfiguration\nSecurity",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI Ensembles Visualizations</span>"
     ]
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
     "title": "ai-ensembles",
-    "section": "1.1 About",
-    "text": "1.1 About\nThis documentation is generated using AI Notebook and published via Quarto.",
+    "section": "1.2 About",
+    "text": "1.2 About\nThis documentation is generated automatically from AI notebook processing results. Each chapter contains: - Original documentation content - AI processing results - Generated visualizations - Analysis summaries",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>AI Ensembles Visualizations</span>"
     ]
   },
   {
-    "objectID": "index.html#status",
-    "href": "index.html#status",
-    "title": "ai-ensembles",
-    "section": "1.2 Status",
-    "text": "1.2 Status\nInitial setup complete. Ready for content generation.",
+    "objectID": "01-ai-ensembles-vis.html",
+    "href": "01-ai-ensembles-vis.html",
+    "title": "2  AI Ensembles",
+    "section": "",
+    "text": "3 AI Ensembles Overview\nAI Ensembles are collections of AI-powered notebooks that work together to process and analyze documents, audio, and other data sources. This chapter introduces the core concepts and architecture of AI ensembles.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ai-ensembles</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#core-concepts",
+    "href": "01-ai-ensembles-vis.html#core-concepts",
+    "title": "2  AI Ensembles",
+    "section": "3.1 Core Concepts",
+    "text": "3.1 Core Concepts\nAn AI ensemble consists of:\n\nAI Notebooks\n\nCollection of .qmd files\nEach notebook has a specific purpose\nNotebooks can reference each other’s results\n\nProcessing Pipeline\n\nDocument parsing\nAI model processing\nResult generation\nVisualization creation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#directory-structure",
+    "href": "01-ai-ensembles-vis.html#directory-structure",
+    "title": "2  AI Ensembles",
+    "section": "3.2 Directory Structure",
+    "text": "3.2 Directory Structure\nai-ensembles/\n├── notebooks/           # AI notebook collection\n│   ├── 01-analysis.qmd\n│   └── 02-results.qmd\n├── process/            # Processing results\n│   ├── analysis.json\n│   └── results.json\n├── ai-views/           # Generated visualizations\n│   └── analysis-vis.qmd\n├── sources/           # Shared resources\n│   └── templates/\n│       └── document.j2\n└── settings.json      # Configuration",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#configuration",
+    "href": "01-ai-ensembles-vis.html#configuration",
+    "title": "2  AI Ensembles",
+    "section": "3.3 Configuration",
+    "text": "3.3 Configuration\nAI ensembles use a central settings.json file:\n{\n  \"paths\": {\n    \"process_dir\": \"process\",\n    \"template_dir\": \"sources/templates\",\n    \"notebooks_dir\": \"notebooks\"\n  },\n  \"models\": {\n    \"defaults\": {\n      \"text\": \"claude-3-5-haiku\",\n      \"experimental\": \"gemini-2-thinking\",\n      \"audio\": \"whisper-large-v3\"\n    }\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#ai-block-structure",
+    "href": "01-ai-ensembles-vis.html#ai-block-structure",
+    "title": "2  AI Ensembles",
+    "section": "3.4 AI Block Structure",
+    "text": "3.4 AI Block Structure\nAI blocks in notebooks use this format:\n::: {.callout-note collapse=\"true\"}\n### Input\n\n*Model: gemini-2, Label: analysis_1*\n\n**Instruction:**\nYour prompt here...\n\n**Template:**\n```yaml\n[\n  {\n    \"file\": \"sources/templates/document.j2\",\n    \"variables\": {\n      \"KEY\": \"value\"\n    }\n  }\n]\n:::\n\n\n\n\n\n\nResponse (7.4s)\n\n\n\n\n\nInstructions to prepend…\nTEMPLATE: Analyze the following text:\nProvide analysis focusing on: 1. Main themes 2. Key arguments 3. Supporting evidence\nINSTRUCTION: Analyze the following text:\n“The rapid advancement of artificial intelligence (AI) presents both unprecedented opportunities and significant challenges for society. On the one hand, AI has the potential to revolutionize various sectors, from healthcare and education to transportation and manufacturing. For example, AI-powered diagnostic tools could lead to earlier detection and more effective treatment of diseases, while automated vehicles could dramatically reduce traffic accidents. Furthermore, AI-driven systems can optimize resource allocation, enhance productivity, and accelerate scientific discovery. However, the widespread adoption of AI also raises concerns about job displacement, algorithmic bias, and ethical dilemmas. As AI systems become increasingly sophisticated, they may surpass human capabilities in certain domains, leading to unemployment in specific sectors. Moreover, if AI algorithms are trained on biased data, they may perpetuate and even amplify existing societal inequalities. Finally, the lack of transparency in some AI decision-making processes raises questions about accountability and fairness. It is imperative that we proactively address these challenges through careful planning, regulation, and ethical considerations to ensure that AI benefits all of humanity.”\n\n\n\n\n## Cross-Notebook References\n\nNotebooks can reference results from other notebooks:\n\n```markdown\n\n::: {.callout-note collapse=\"true\"}\n### Input\n\n*Model: gemini-2*\n\n**Instruction:**\nCompare these analyses:\n1. Previous findings: [Error: Label initial_analysis not found in 01-analysis]\n2. New results: [Error: Label detailed_review not found in 02-results]\n:::\n\n::: {.callout-tip collapse=\"true\"}\n### Response (3.7s)\n\nOkay, I understand the instruction. However, the provided analyses are missing. The placeholders indicate:\n\n1. **Previous findings:**  There should be a section labelled `initial_analysis` in a document named `01-analysis`, but it's not present.\n2. **New results:** There should be a section labelled `detailed_review` in a document named `02-results`, but it's also missing.\n\n**I cannot perform the comparison without the content of these sections.**\n\n**To proceed, you need to provide me with the content that is supposed to be in those sections. For example, you would need to provide me with text like this:**\n\n01-analysis (with “initial_analysis” section):",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#processing-flow",
+    "href": "01-ai-ensembles-vis.html#processing-flow",
+    "title": "2  AI Ensembles",
+    "section": "5.1 Processing Flow",
+    "text": "5.1 Processing Flow\n\nDocument Loading\nainotebook load notebooks/01-analysis.qmd\nAI Processing\nainotebook process notebooks/*.qmd\nVisualization\nainotebook visualize notebooks/01-analysis.qmd",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "01-ai-ensembles-vis.html#best-practices",
+    "href": "01-ai-ensembles-vis.html#best-practices",
+    "title": "2  AI Ensembles",
+    "section": "5.2 Best Practices",
+    "text": "5.2 Best Practices\n\nNotebook Organization\n\nUse numbered prefixes (01-, 02-, etc.)\nOne main task per notebook\nClear dependencies between notebooks\n\nTemplate Management\n\nStore shared templates in sources/templates\nUse consistent variable names\nDocument template requirements\n\nError Handling\n\nValidate inputs before processing\nCheck for missing dependencies\nLog processing errors",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI Ensembles</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html",
+    "href": "02-ai-notebooks-vis.html",
+    "title": "3  AI Notebooks",
+    "section": "",
+    "text": "4 AI Notebooks\nAI Notebooks are Quarto documents (.qmd) that combine regular markdown content with special AI processing blocks. This chapter explains their structure and usage.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#supported-models",
+    "href": "02-ai-notebooks-vis.html#supported-models",
+    "title": "3  AI Notebooks",
+    "section": "4.1 Supported Models",
+    "text": "4.1 Supported Models\n\n4.1.1 Anthropic Models\n\nGemini 2 (gemini-2)\n\nFast responses\nCost-effective\nBest for: Quick analyses, drafts, iterations\n\nClaude 3 Sonnet (claude-3-5-sonnet)\n\nBalanced performance\nAdvanced reasoning\n200K context\nBest for: Complex analysis, academic writing\n\n\n\n\n4.1.2 Google Models\n\nGemini Pro\n\nGeneral purpose\nCode generation\n32K context\nBest for: Technical documentation, code analysis\n\nGemini 2.0 Flash Thinking (gemini-2.0-flash-thinking-exp-01-21)\n\nExperimental model\nFast responses\nBest for: Quick iterations and experiments\n\n\n\n\n4.1.3 Groq Models\n\nMixtral 8x7B (mixtral-8x7b-32768)\n\n32K context window\nHigh performance\nBest for: Long-form analysis\n\nLLaMA2 70B (llama2-70b-4096)\n\n4K context window\nGeneral purpose\nBest for: Standard text processing\n\n\n\n\n4.1.4 Other Models\n\nO3-Mini\n\nLightweight model\nFast processing\nBest for: Simple tasks and testing\n\n\n\n\n4.1.5 Audio Processing Models\n\nWhisper Large v3\n\nMultiple languages\nRobust transcription\nSpeaker diarization\nBest for: Lecture transcription, interviews",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#basic-structure",
+    "href": "02-ai-notebooks-vis.html#basic-structure",
+    "title": "3  AI Notebooks",
+    "section": "4.2 Basic Structure",
+    "text": "4.2 Basic Structure\nAn AI notebook consists of:\n\nYAML Header\nRegular Markdown Content\nAI Processing Blocks\nGenerated Results\n\n\n4.2.1 Example: Document Analysis\n---\ntitle: \"Document Analysis\"\nauthor: \"Researcher Name\"\ndate: last-modified\n---\n\n# Analysis Overview\n\n\n\n### Example: Audio Processing\n\n\n## AI Block Components\n\n### 1. Model Selection\n\n```yaml\n# Text Analysis\nmodel: gemini-2                           # Fast, efficient\nmodel: claude-3-5-sonnet                          # Balanced performance\nmodel: gemini-pro                                 # General purpose\nmodel: gemini-2-thinking                         # Experimental Flash Thinking\nmodel: mixtral-8x7b-32768                        # High performance\nmodel: llama2-70b-4096                           # General purpose\nmodel: o3-mini                                   # Lightweight\n\n# Audio Processing\nmodel: whisper-large-v3                          # High accuracy transcription\n\n\n4.2.2 2. Processing Options\n# Basic options\noverwrite: false         # Skip if results exist\nlabel: analysis_1        # Reference label\npreamble: \"text\"         # Prepend to prompt\n\n# Template usage\ntemplate:\n  - file: analysis.j2    # Template file\n    variables:           # Template variables\n      TEXT: input.txt\n      STYLE: academic\n\n# Model-specific options\noptions:\n  temperature: 0.1       # Response creativity\n  max_tokens: 8192       # Maximum response length\n  language: \"en\"         # Content language\n\n\n4.2.3 3. File Assignments\nfiles:\n  document: sources/text.txt     # Load file content\n  context: sources/context.txt   # Additional context\n  audio: sources/lecture.mp3     # Audio file",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#template-system",
+    "href": "02-ai-notebooks-vis.html#template-system",
+    "title": "3  AI Notebooks",
+    "section": "4.3 Template System",
+    "text": "4.3 Template System\nTemplates support multiple formats and use cases:\n\n4.3.1 1. Academic Analysis Template\n{# academic_analysis.j2 #}\nAnalyze the following text in {{STYLE}} style:\n\nText to analyze:\n{{TEXT}}\n\nProvide analysis focusing on:\n1. Main themes\n2. Key arguments\n3. Supporting evidence\n\n\n4.3.2 2. Data Extraction Template\n{# data_extract.j2 #}\nExtract structured information from this text:\n{{TEXT}}\n\nRequired fields:\n- dates: List all dates in ISO format\n- names: Extract person names\n- locations: Identify place names\n- events: List key events\n\nOutput format: JSON",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#advanced-features",
+    "href": "02-ai-notebooks-vis.html#advanced-features",
+    "title": "3  AI Notebooks",
+    "section": "4.4 Advanced Features",
+    "text": "4.4 Advanced Features\n\n4.4.1 1. Chain Processing\nchain:\n  - model: gemini-2\n    label: metadata\n  - template: analyze.j2\n    variables:\n      CONTEXT: \"{{metadata}}\"\n  - template: summarize.j2\n\n\n4.4.2 2. Parallel Processing\nparallel:\n  - label: text_analysis\n    model: gemini-2\n  - label: code_review\n    model: gemini-pro\n  - label: transcription\n    model: whisper-large-v3\n\n\n4.4.3 3. Conditional Processing\nconditions:\n  - if: \"{{word_count}} &gt; 1000\"\n    use: summarize.j2\n  - else:\n    use: direct_analysis.j2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#result-storage",
+    "href": "02-ai-notebooks-vis.html#result-storage",
+    "title": "3  AI Notebooks",
+    "section": "4.5 Result Storage",
+    "text": "4.5 Result Storage\nResults are stored in JSON format with detailed metadata:\n{\n  \"block_id\": \"analysis_1\",\n  \"model\": \"gemini-2\",\n  \"timestamp\": \"2024-02-15T14:30:00Z\",\n  \"input\": {\n    \"prompt\": \"Analyze this document...\",\n    \"files\": {\n      \"document\": \"path/to/source.txt\"\n    },\n    \"options\": {\n      \"temperature\": 0.1,\n      \"max_tokens\": 8192\n    }\n  },\n  \"response\": {\n    \"text\": \"Analysis results...\",\n    \"tokens\": 1250,\n    \"duration\": 3.5,\n    \"model_version\": \"gemini-2-20240215\"\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#cross-references",
+    "href": "02-ai-notebooks-vis.html#cross-references",
+    "title": "3  AI Notebooks",
+    "section": "4.6 Cross-References",
+    "text": "4.6 Cross-References\n\n4.6.1 1. Within Same Notebook\n---\nmodel: gemini-pro\n---\nReview this analysis: {{analysis_1}}\n\n\n4.6.2 2. Across Notebooks\n---\nmodel: gemini-2\n---\nCompare:\n1. {{01-extract:metadata}}\n2. {{02-analyze:findings}}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#error-handling",
+    "href": "02-ai-notebooks-vis.html#error-handling",
+    "title": "3  AI Notebooks",
+    "section": "4.7 Error Handling",
+    "text": "4.7 Error Handling\n\nMissing Files\n\nfiles:\n  required: true           # Fail if missing\n  document: input.txt     \n  fallback: default.txt   # Use if primary missing\n\nProcessing Errors\n\n\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl\"}\n[ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXItdGl0bGU=\"}\n[&lt;span class='chapter-number'&gt;4&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Tasks&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uZXh0\"}\n[&lt;span class='chapter-number'&gt;2&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Ensembles&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1wcmV2\"}\n[&lt;span class='chapter-number'&gt;1&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Ensembles Visualizations&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi9pbmRleC5odG1sPHNwYW4tY2xhc3M9J2NoYXB0ZXItbnVtYmVyJz4xPC9zcGFuPi0tPHNwYW4tY2xhc3M9J2NoYXB0ZXItdGl0bGUnPkFJLUVuc2VtYmxlcy1WaXN1YWxpemF0aW9uczwvc3Bhbj4=\"}\n[&lt;span class='chapter-number'&gt;2&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Ensembles&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi8wMS1haS1lbnNlbWJsZXMtdmlzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjI8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+QUktRW5zZW1ibGVzPC9zcGFuPg==\"}\n[&lt;span class='chapter-number'&gt;3&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Notebooks&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi8wMi1haS1ub3RlYm9va3MtdmlzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjM8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+QUktTm90ZWJvb2tzPC9zcGFuPg==\"}\n[&lt;span class='chapter-number'&gt;4&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Tasks&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi8wMy1haS10YXNrcy12aXMuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NDwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5BSS1UYXNrczwvc3Bhbj4=\"}\n[&lt;span class='chapter-number'&gt;5&lt;/span&gt;  &lt;span class='chapter-title'&gt;Data Structure&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi8wNC1kYXRhLXN0cnVjdHVyZS12aXMuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+NTwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5EYXRhLVN0cnVjdHVyZTwvc3Bhbj4=\"}\n[&lt;span class='chapter-number'&gt;6&lt;/span&gt;  &lt;span class='chapter-title'&gt;CLI Execution&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyOi8wNS1leGVjdXRpb24tdmlzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPjY8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+Q0xJLUV4ZWN1dGlvbjwvc3Bhbj4=\"}\n[&lt;span class='chapter-number'&gt;3&lt;/span&gt;  &lt;span class='chapter-title'&gt;AI Notebooks&lt;/span&gt;]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz5BSS1Ob3RlYm9va3M8L3NwYW4+\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[[3]{.chapter-number}  [AI Notebooks]{.chapter-title} – ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGF0aXRsZQ==\"}\n[[3]{.chapter-number}  [AI Notebooks]{.chapter-title} – ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=\"}\n[[3]{.chapter-number}  [AI Notebooks]{.chapter-title} – ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZHRpdGxl\"}\n[ai-ensembles]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGFzaXRlbmFtZQ==\"}\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==\"}\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZGRkZXNj\"}\n:::\n\n\n\n\n&lt;!-- --&gt;\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n---\ntitle: \"AI Notebooks\"\nauthor: \"Gerd Graßhoff\"\ndate: last-modified\n---\n\n# AI Notebooks\n\nAI Notebooks are Quarto documents (.qmd) that combine regular markdown content with special AI processing blocks. This chapter explains their structure and usage.\n\n## Supported Models\n\n### Anthropic Models\n\n- Gemini 2 (gemini-2)\n  - Fast responses\n  - Cost-effective\n  - Best for: Quick analyses, drafts, iterations\n\n- Claude 3 Sonnet (claude-3-5-sonnet)\n  - Balanced performance\n  - Advanced reasoning\n  - 200K context\n  - Best for: Complex analysis, academic writing\n\n### Google Models\n\n- Gemini Pro\n  - General purpose\n  - Code generation\n  - 32K context\n  - Best for: Technical documentation, code analysis\n\n- Gemini 2.0 Flash Thinking (gemini-2.0-flash-thinking-exp-01-21)\n  - Experimental model\n  - Fast responses\n  - Best for: Quick iterations and experiments\n\n### Groq Models\n\n- Mixtral 8x7B (mixtral-8x7b-32768)\n  - 32K context window\n  - High performance\n  - Best for: Long-form analysis\n\n- LLaMA2 70B (llama2-70b-4096)\n  - 4K context window\n  - General purpose\n  - Best for: Standard text processing\n\n### Other Models\n\n- O3-Mini\n  - Lightweight model\n  - Fast processing\n  - Best for: Simple tasks and testing\n\n### Audio Processing Models\n\n- Whisper Large v3\n  - Multiple languages\n  - Robust transcription\n  - Speaker diarization\n  - Best for: Lecture transcription, interviews\n\n## Basic Structure\n\nAn AI notebook consists of:\n\n1. YAML Header\n2. Regular Markdown Content\n3. AI Processing Blocks\n4. Generated Results\n\n### Example: Document Analysis\n\n```markdown\n---\ntitle: \"Document Analysis\"\nauthor: \"Researcher Name\"\ndate: last-modified\n---\n\n# Analysis Overview\n\n\n\n### Example: Audio Processing\n\n\n## AI Block Components\n\n### 1. Model Selection\n\n```yaml\n# Text Analysis\nmodel: gemini-2                           # Fast, efficient\nmodel: claude-3-5-sonnet                          # Balanced performance\nmodel: gemini-pro                                 # General purpose\nmodel: gemini-2-thinking                         # Experimental Flash Thinking\nmodel: mixtral-8x7b-32768                        # High performance\nmodel: llama2-70b-4096                           # General purpose\nmodel: o3-mini                                   # Lightweight\n\n# Audio Processing\nmodel: whisper-large-v3                          # High accuracy transcription\n\n4.7.1 2. Processing Options\n# Basic options\noverwrite: false         # Skip if results exist\nlabel: analysis_1        # Reference label\npreamble: \"text\"         # Prepend to prompt\n\n# Template usage\ntemplate:\n  - file: analysis.j2    # Template file\n    variables:           # Template variables\n      TEXT: input.txt\n      STYLE: academic\n\n# Model-specific options\noptions:\n  temperature: 0.1       # Response creativity\n  max_tokens: 8192       # Maximum response length\n  language: \"en\"         # Content language\n\n\n4.7.2 3. File Assignments\nfiles:\n  document: sources/text.txt     # Load file content\n  context: sources/context.txt   # Additional context\n  audio: sources/lecture.mp3     # Audio file",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#template-system-1",
+    "href": "02-ai-notebooks-vis.html#template-system-1",
+    "title": "3  AI Notebooks",
+    "section": "4.8 Template System",
+    "text": "4.8 Template System\nTemplates support multiple formats and use cases:\n\n4.8.1 1. Academic Analysis Template\n{# academic_analysis.j2 #}\nAnalyze the following text in {{STYLE}} style:\n\nText to analyze:\n{{TEXT}}\n\nProvide analysis focusing on:\n1. Main themes\n2. Key arguments\n3. Supporting evidence\n\n\n4.8.2 2. Data Extraction Template\n{# data_extract.j2 #}\nExtract structured information from this text:\n{{TEXT}}\n\nRequired fields:\n- dates: List all dates in ISO format\n- names: Extract person names\n- locations: Identify place names\n- events: List key events\n\nOutput format: JSON",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#advanced-features-1",
+    "href": "02-ai-notebooks-vis.html#advanced-features-1",
+    "title": "3  AI Notebooks",
+    "section": "4.9 Advanced Features",
+    "text": "4.9 Advanced Features\n\n4.9.1 1. Chain Processing\nchain:\n  - model: gemini-2\n    label: metadata\n  - template: analyze.j2\n    variables:\n      CONTEXT: \"{{metadata}}\"\n  - template: summarize.j2\n\n\n4.9.2 2. Parallel Processing\nparallel:\n  - label: text_analysis\n    model: gemini-2\n  - label: code_review\n    model: gemini-pro\n  - label: transcription\n    model: whisper-large-v3\n\n\n4.9.3 3. Conditional Processing\nconditions:\n  - if: \"{{word_count}} &gt; 1000\"\n    use: summarize.j2\n  - else:\n    use: direct_analysis.j2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#result-storage-1",
+    "href": "02-ai-notebooks-vis.html#result-storage-1",
+    "title": "3  AI Notebooks",
+    "section": "4.10 Result Storage",
+    "text": "4.10 Result Storage\nResults are stored in JSON format with detailed metadata:\n{\n  \"block_id\": \"analysis_1\",\n  \"model\": \"gemini-2\",\n  \"timestamp\": \"2024-02-15T14:30:00Z\",\n  \"input\": {\n    \"prompt\": \"Analyze this document...\",\n    \"files\": {\n      \"document\": \"path/to/source.txt\"\n    },\n    \"options\": {\n      \"temperature\": 0.1,\n      \"max_tokens\": 8192\n    }\n  },\n  \"response\": {\n    \"text\": \"Analysis results...\",\n    \"tokens\": 1250,\n    \"duration\": 3.5,\n    \"model_version\": \"gemini-2-20240215\"\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#cross-references-1",
+    "href": "02-ai-notebooks-vis.html#cross-references-1",
+    "title": "3  AI Notebooks",
+    "section": "4.11 Cross-References",
+    "text": "4.11 Cross-References\n\n4.11.1 1. Within Same Notebook\n---\nmodel: gemini-pro\n---\nReview this analysis: {{analysis_1}}\n\n\n4.11.2 2. Across Notebooks\n---\nmodel: gemini-2\n---\nCompare:\n1. {{01-extract:metadata}}\n2. {{02-analyze:findings}}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "02-ai-notebooks-vis.html#error-handling-1",
+    "href": "02-ai-notebooks-vis.html#error-handling-1",
+    "title": "3  AI Notebooks",
+    "section": "4.12 Error Handling",
+    "text": "4.12 Error Handling\n\nMissing Files\n\nfiles:\n  required: true           # Fail if missing\n  document: input.txt     \n  fallback: default.txt   # Use if primary missing\n\nProcessing Errors\n\n\n:::",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI Notebooks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html",
+    "href": "03-ai-tasks-vis.html",
+    "title": "4  AI Tasks",
+    "section": "",
+    "text": "5 AI Tasks\nAI tasks are the core processing units within AI notebooks. This chapter covers the different types of tasks, their configuration, and best practices for implementation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#task-types",
+    "href": "03-ai-tasks-vis.html#task-types",
+    "title": "4  AI Tasks",
+    "section": "5.1 Task Types",
+    "text": "5.1 Task Types\n\n5.1.1 1. Text Analysis\n---\nmodel: gemini-2\ntask: analysis\nlabel: historical_analysis\n---\nAnalyze this historical document focusing on:\n1. Key events and dates\n2. Historical figures\n3. Social context\n\n\n5.1.2 2. Audio Processing\n---\nmodel: whisper-large-v3\ntask: transcription\noptions:\n  language: \"de\"\n  diarization: true\n---\nTranscribe this lecture recording with speaker identification\n\n\n5.1.3 3. Data Extraction\n---\nmodel: gemini-pro\ntask: extraction\nformat: json\n---\nExtract structured data from this text:\n- Dates (ISO format)\n- Person names\n- Organizations\n- Locations",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#task-configuration",
+    "href": "03-ai-tasks-vis.html#task-configuration",
+    "title": "4  AI Tasks",
+    "section": "5.2 Task Configuration",
+    "text": "5.2 Task Configuration\n\n5.2.1 1. Basic Settings\ntask:\n  type: analysis          # Task type\n  format: markdown        # Output format\n  language: \"en\"         # Content language\n  timeout: 300           # Seconds\n\n\n5.2.2 2. Model Selection\n# Fast Processing\nmodel: gemini-2\noptions:\n  temperature: 0.1\n  max_tokens: 4096\n\n# High Accuracy\nmodel: claude-3-5-sonnet\noptions:\n  temperature: 0.2\n  max_tokens: 8192\n\n# Experimental\nmodel: gemini-2-thinking\noptions:\n  temperature: 0.5\n  max_tokens: 4096\n\n\n5.2.3 3. Processing Chains\nchain:\n  - task: extract_metadata\n    model: gemini-2\n    label: metadata\n    \n  - task: analyze_content\n    model: claude-3-5-sonnet\n    variables:\n      CONTEXT: \"{{metadata}}\"\n    \n  - task: summarize\n    model: gemini-2\n    template: summary.j2",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#task-templates",
+    "href": "03-ai-tasks-vis.html#task-templates",
+    "title": "4  AI Tasks",
+    "section": "5.3 Task Templates",
+    "text": "5.3 Task Templates\n\n5.3.1 1. Academic Analysis\n{# templates/academic.j2 #}\nAnalyze the following {{DOCUMENT_TYPE}} in academic style:\n\nContent:\n{{CONTENT}}\n\nProvide:\n1. Methodological approach\n2. Critical analysis\n3. Supporting evidence\n4. Scholarly context\n\n\n5.3.2 2. Data Extraction\n{# templates/extract.j2 #}\nExtract information from this {{SOURCE_TYPE}}:\n\nSource:\n{{SOURCE}}\n\nRequired fields:\n{{#each FIELDS}}\n- {{this.name}}: {{this.description}}\n{{/each}}\n\nFormat: {{OUTPUT_FORMAT}}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#task-processing",
+    "href": "03-ai-tasks-vis.html#task-processing",
+    "title": "4  AI Tasks",
+    "section": "5.4 Task Processing",
+    "text": "5.4 Task Processing\n\n5.4.1 1. Sequential Processing\nsequence:\n  - task: preprocess\n    model: o3-mini\n    \n  - task: main_analysis\n    model: claude-3-5-sonnet\n    \n  - task: summarize\n    model: gemini-2\n\n\n5.4.2 2. Parallel Processing\nparallel:\n  - task: text_analysis\n    model: gemini-2\n    \n  - task: metadata\n    model: mixtral-8x7b-32768\n    \n  - task: transcription\n    model: whisper-large-v3",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#error-handling",
+    "href": "03-ai-tasks-vis.html#error-handling",
+    "title": "4  AI Tasks",
+    "section": "5.5 Error Handling",
+    "text": "5.5 Error Handling\n\n5.5.1 1. Retry Configuration\nretry:\n  max_attempts: 3\n  delay: 1000\n  backoff: exponential\n  conditions:\n    - error_type: timeout\n    - error_type: rate_limit\n\n\n5.5.2 2. Fallback Models\nmodels:\n  primary: claude-3-5-sonnet\n  fallback:\n    - gemini-2\n    - gemini-pro\n    - o3-mini",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "03-ai-tasks-vis.html#best-practices",
+    "href": "03-ai-tasks-vis.html#best-practices",
+    "title": "4  AI Tasks",
+    "section": "5.6 Best Practices",
+    "text": "5.6 Best Practices\n\nTask Design\n\nOne primary objective per task\nClear input/output specifications\nAppropriate model selection\n\nPerformance Optimization\n\nUse fast models for simple tasks\nParallel processing when possible\nEfficient chain design\n\nError Management\n\nComprehensive retry logic\nGraceful fallback options\nClear error reporting\n\nResource Usage\n\nMonitor token consumption\nBalance speed vs accuracy\nOptimize context length",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>AI Tasks</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html",
+    "href": "04-data-structure-vis.html",
+    "title": "5  Data Structure",
+    "section": "",
+    "text": "6 Data Structure\nThis chapter explains how data is organized in AI ensembles, including source files, templates, and processing results.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#directory-structure",
+    "href": "04-data-structure-vis.html#directory-structure",
+    "title": "5  Data Structure",
+    "section": "6.1 Directory Structure",
+    "text": "6.1 Directory Structure\nai-ensembles/\n├── notebooks/           # AI notebook collection\n├── sources/            # Source files and templates\n│   ├── templates/      # Jinja2 templates\n│   ├── documents/      # Input documents\n│   ├── audio/         # Audio files\n│   └── instructions/   # Task instructions\n├── process/           # Processing results\n├── ai-views/          # Generated visualizations\n└── docs/             # Generated documentation",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#source-files",
+    "href": "04-data-structure-vis.html#source-files",
+    "title": "5  Data Structure",
+    "section": "6.2 Source Files",
+    "text": "6.2 Source Files\n\n6.2.1 1. Templates Directory\nTemplates are stored in sources/templates/ and follow Jinja2 syntax:\n{# sources/templates/document.j2 #}\nAnalyze the following text in {{STYLE}} style:\n\nText to analyze:\n{{TEXT}}\n\nRequired analysis:\n1. {{#each REQUIREMENTS}}\n   - {{this}}\n   {{/each}}\n\n\n6.2.2 2. Document Sources\nText documents in sources/documents/ can be referenced in notebooks:\nfiles:\n  input: documents/manuscript.txt\n  context: documents/background.md\n  metadata: documents/metadata.json\n\n\n6.2.3 3. Audio Sources\nAudio files in sources/audio/ support various formats:\nfiles:\n  recording: audio/lecture.mp3\n  interview: audio/interview.wav\n  meeting: audio/meeting.m4a",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#process-directory",
+    "href": "04-data-structure-vis.html#process-directory",
+    "title": "5  Data Structure",
+    "section": "6.3 Process Directory",
+    "text": "6.3 Process Directory\nThe process/ directory stores processing results and metadata:\n\n6.3.1 1. Result Structure\n{\n  \"notebook\": \"01-analysis.qmd\",\n  \"blocks\": [\n    {\n      \"id\": \"block_1\",\n      \"model\": \"claude-3-5-haiku\",\n      \"input\": {\n        \"files\": {\n          \"document\": \"sources/documents/text.md\"\n        },\n        \"template\": \"analysis.j2\",\n        \"variables\": {\n          \"STYLE\": \"academic\"\n        }\n      },\n      \"output\": {\n        \"text\": \"Analysis results...\",\n        \"metadata\": {\n          \"tokens\": 1250,\n          \"duration\": 3.5\n        }\n      }\n    }\n  ]\n}\n\n\n6.3.2 2. Cache Organization\nprocess/\n├── cache/                    # Cached responses\n│   ├── claude/              # By model\n│   │   └── responses/\n│   └── whisper/\n│       └── transcripts/\n├── metadata/                 # Processing metadata\n└── results/                 # Final results",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#ai-views",
+    "href": "04-data-structure-vis.html#ai-views",
+    "title": "5  Data Structure",
+    "section": "6.4 AI Views",
+    "text": "6.4 AI Views\nGenerated visualizations in ai-views/:\n\n6.4.1 1. View Structure\nai-views/\n├── _quarto.yml              # Quarto configuration\n├── index.qmd                # Main page\n├── analysis-vis.qmd         # Analysis visualization\n└── results-vis.qmd          # Results visualization\n\n\n6.4.2 2. View Configuration\n# ai-views/_quarto.yml\nproject:\n  type: book\n  output-dir: ../docs\n\nbook:\n  title: \"AI Ensemble Results\"\n  chapters:\n    - index.qmd\n    - analysis-vis.qmd\n    - results-vis.qmd\n\nformat:\n  html:\n    theme: sandstone\n    code-fold: true",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#file-naming-conventions",
+    "href": "04-data-structure-vis.html#file-naming-conventions",
+    "title": "5  Data Structure",
+    "section": "6.5 File Naming Conventions",
+    "text": "6.5 File Naming Conventions\n\nNotebooks\nNN-purpose.qmd          # e.g., 01-analysis.qmd\nTemplates\npurpose_type.j2         # e.g., analysis_academic.j2\nSource Files\nYYYY-MM-DD_name.ext     # e.g., 2024-02-15_manuscript.txt\nResults\nnotebook_id_block_id.json  # e.g., 01-analysis_block1.json",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "04-data-structure-vis.html#best-practices",
+    "href": "04-data-structure-vis.html#best-practices",
+    "title": "5  Data Structure",
+    "section": "6.6 Best Practices",
+    "text": "6.6 Best Practices\n\nSource Organization\n\nUse clear directory structure\nFollow naming conventions\nInclude metadata files\n\nTemplate Management\n\nGroup related templates\nDocument variables\nVersion control templates\n\nResult Storage\n\nOrganize by notebook\nInclude processing metadata\nRegular cleanup of cache\n\nFile Access\n\nUse relative paths\nCheck file existence\nHandle missing files gracefully",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Structure</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html",
+    "href": "05-execution-vis.html",
+    "title": "6  CLI Execution",
+    "section": "",
+    "text": "7 CLI Execution\nThis chapter covers the command-line tools ainotebook and aiaudio for processing AI notebooks and audio files.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html#ainotebook-cli",
+    "href": "05-execution-vis.html#ainotebook-cli",
+    "title": "6  CLI Execution",
+    "section": "7.1 AINotebook CLI",
+    "text": "7.1 AINotebook CLI\nThe ainotebook command processes AI notebooks and manages visualizations.\n\n7.1.1 Basic Commands\n# Process a single notebook\nainotebook process notebooks/01-analysis.qmd\n\n# Process multiple notebooks\nainotebook process notebooks/*.qmd\n\n# Generate visualizations\nainotebook visualize notebooks/01-analysis.qmd\n\n\n7.1.2 Command Options\nainotebook [command] [options] &lt;files&gt;\n\nCommands:\n  process    Process AI blocks in notebooks\n  visualize  Generate visualization notebooks\n  clean      Clean process directory\n  info       Show notebook information\n\nOptions:\n  --overwrite       Force reprocessing of blocks\n  --model &lt;name&gt;    Override default model\n  --parallel        Enable parallel processing\n  --verbose        Show detailed output\n\n\n7.1.3 Processing Examples\n\nBasic Processing\n\n# Process with default settings\nainotebook process notebooks/01-analysis.qmd\n\n# Force reprocessing\nainotebook process --overwrite notebooks/01-analysis.qmd\n\n# Use specific model\nainotebook process --model claude-3-5-haiku notebooks/*.qmd\n\nBatch Processing\n\n# Process all notebooks\nainotebook process notebooks/\n\n# Process with pattern\nainotebook process \"notebooks/*-analysis.qmd\"\n\n# Parallel processing\nainotebook process --parallel notebooks/*.qmd",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html#aiaudio-cli",
+    "href": "05-execution-vis.html#aiaudio-cli",
+    "title": "6  CLI Execution",
+    "section": "7.2 AIAudio CLI",
+    "text": "7.2 AIAudio CLI\nThe aiaudio command handles audio file processing and transcription.\n\n7.2.1 Basic Usage\n# Transcribe audio file\naiaudio transcribe sources/audio/lecture.mp3\n\n# Process with speaker detection\naiaudio transcribe --speakers sources/audio/interview.mp3\n\n# Batch processing\naiaudio transcribe sources/audio/*.mp3\n\n\n7.2.2 Command Options\naiaudio [command] [options] &lt;files&gt;\n\nCommands:\n  transcribe  Transcribe audio files\n  diarize     Detect and label speakers\n  clean       Remove temporary files\n\nOptions:\n  --language &lt;code&gt;   Source language\n  --speakers         Enable speaker detection\n  --format &lt;type&gt;    Output format (txt/json)\n  --timestamps      Include timestamps",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html#configuration",
+    "href": "05-execution-vis.html#configuration",
+    "title": "6  CLI Execution",
+    "section": "7.3 Configuration",
+    "text": "7.3 Configuration\n\n7.3.1 Environment Setup\n# Required environment variables\nexport ANTHROPIC_API_KEY=\"your-key\"\nexport GOOGLE_API_KEY=\"your-key\"\nexport GROQ_API_KEY=\"your-key\"\n\n# Optional settings\nexport AI_NOTEBOOK_CACHE_DIR=\"/path/to/cache\"\nexport AI_NOTEBOOK_TEMPLATE_DIR=\"/path/to/templates\"\n\n\n7.3.2 Settings File\n# settings.json\n{\n  \"paths\": {\n    \"process_dir\": \"process\",\n    \"template_dir\": \"sources/templates\",\n    \"notebooks_dir\": \"notebooks\"\n  },\n  \"models\": {\n    \"defaults\": {\n      \"text\": \"claude-3-5-haiku\",\n      \"audio\": \"whisper-large-v3\"\n    }\n  },\n  \"processing\": {\n    \"parallel\": true,\n    \"cache\": true,\n    \"overwrite\": false\n  }\n}",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html#error-handling",
+    "href": "05-execution-vis.html#error-handling",
+    "title": "6  CLI Execution",
+    "section": "7.4 Error Handling",
+    "text": "7.4 Error Handling\n\n7.4.1 Common Issues\n\nAuthentication Errors\n\n# Check API keys\nainotebook check-auth\n\n# Test specific provider\nainotebook check-auth --provider anthropic\n\nProcessing Errors\n\n# Show detailed error information\nainotebook process --verbose notebooks/01-analysis.qmd\n\n# Retry failed blocks\nainotebook retry notebooks/01-analysis.qmd\n\n\n7.4.2 Logging\n# Enable debug logging\nainotebook --debug process notebooks/*.qmd\n\n# Save logs to file\nainotebook --log process.log process notebooks/*.qmd",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
+    ]
+  },
+  {
+    "objectID": "05-execution-vis.html#best-practices",
+    "href": "05-execution-vis.html#best-practices",
+    "title": "6  CLI Execution",
+    "section": "7.5 Best Practices",
+    "text": "7.5 Best Practices\n\nCLI Usage\n\nUse appropriate commands for tasks\nCheck command options\nMonitor processing status\n\nError Management\n\nCheck authentication before processing\nUse verbose mode for debugging\nKeep logs for troubleshooting\n\nPerformance\n\nEnable parallel processing when appropriate\nUse caching for repeated operations\nClean cache periodically\n\nSecurity\n\nSecure API keys\nUse environment variables\nValidate input files",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>CLI Execution</span>"
     ]
   }
 ]
